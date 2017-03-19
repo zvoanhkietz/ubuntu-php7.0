@@ -42,10 +42,10 @@ RUN groupadd -g ${gid} ${group}
 RUN useradd -u ${uid} -g ${gid} -m -d "/home/${user}" -s /bin/bash -p"${pas}" ${user}
 RUN sudo usermod -aG sudo ${user}
 
-RUN mkdir -p "/home/${user}/Project"
-RUN chown -R "${user}:${group}" "/home/${user}/Project"
+RUN mkdir -p "/home/${user}/Projects"
+RUN chown -R "${user}:${group}" "/home/${user}/Projects"
 
-VOLUME ["/home/${user}/.ssh" ,"/home/${user}/Project"]
+VOLUME ["/home/${user}/.ssh" ,"/home/${user}/Projects"]
 
 EXPOSE 80
 
