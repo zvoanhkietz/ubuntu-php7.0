@@ -41,6 +41,7 @@ ENV COMPOSER_DISABLE_XDEBUG_WARN 1
 RUN groupadd -g ${gid} ${group}
 RUN useradd -u ${uid} -g ${gid} -m -d "/home/${user}" -s /bin/bash -p"${pas}" ${user}
 RUN sudo usermod -aG sudo ${user}
+RUN echo "${user} ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 RUN mkdir -p "/home/${user}/Projects"
 RUN chown -R "${user}:${group}" "/home/${user}/Projects"
